@@ -85,10 +85,18 @@ def add_entry():
 def login():
     """User login/authentication/session management."""
     error = None
+
+   
     if request.method == "POST":
-        if request.form["username"] != app.config["USERNAME"]:
+        username = request.form["username"]
+        password = request.form["password"]
+
+        if (username == '' or username.lower().startswith('invalid')):
+            raise Exception("User is invalid")
+
+        if username != app.config["USERNAME"]:
             error = "Invalid username"
-        elif request.form["password"] != app.config["PASSWORD"]:
+        elif password != app.config["PASSWORD"]:
             error = "Invalid password"
         else:
             session["logged_in"] = True
