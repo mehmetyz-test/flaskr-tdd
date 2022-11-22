@@ -85,8 +85,6 @@ def add_entry():
 def login():
     """User login/authentication/session management."""
     error = None
-
-   
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
