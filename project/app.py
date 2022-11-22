@@ -94,6 +94,9 @@ def login():
         if (username == '' or username.lower().startswith('invalid')):
             raise Exception("User is invalid")
 
+        if (password == '' or username.lower().startswith('invalid')): 
+            raise ValueError("Password is invalid")
+
         if username != app.config["USERNAME"]:
             error = "Invalid username"
         elif password != app.config["PASSWORD"]:
