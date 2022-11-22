@@ -1,3 +1,12 @@
+
+
+try:
+    import tracepointdebug
+    tracepointdebug.start()
+except ImportError as e:
+    pass
+
+
 import os
 from functools import wraps
 from pathlib import Path
